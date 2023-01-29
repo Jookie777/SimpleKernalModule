@@ -1,0 +1,27 @@
+Although our assignment is just to write a really simple kernal module, I got stuck for a couple of times during the setup and actually writing the module 
+and seeing the output.
+Here are the difficulties I had and the way I got myself out of them:
+
+1. At the beginning, I had some trouble with installing the VM attu. I was having a unstable connection to wifi by the time I was working on this. I spent 
+a lot of time downloading the VM. Then when I was running the scp command to move the file into attu, the pipe was broken due to the file size, even if I 
+zipped the file already. Then I tried to directly download the VM when I was in attu but I was not able to wget the google drive link. Finally I found that
+I could directly dragged a file into VSCode where I ran attu, and I successfully dragged the zipped file into attu to access the VM :) But there came more.
+Attu thinks the zipped file of the VM is a ZIPBOMB and didn't allow me to unzip it. And I ended up find some flags to bypassed the security check and 
+finally logged into the VM.
+
+
+2. After I got everything set up and started actually working on the kernal module, I wasn't able to understand where should we actually print the message
+into. I was trying connect my operation with the standard I/O for a while. But I found that in the kernal mode, we don't have methods like printf() that 
+can directly print the message into the console. After diving into plenty of online resources and youtube videos, I happened to see a youtuber using the
+`dmesg` command to print some messages out. And that's when I realized where all the output is going using methods like printk().
+
+3. I was also stucked when I finished writing the module c file and Makefile but wasn't able to insert the module since I didn't have the correct kernal
+version downloaded. I thought I should do some modifications in the MODULE_VERSION in the c file but turned out that is only the version I name my own
+module. After some time of cd and ll and play around in the virtual machines to see how the kernal is running and where all files exist, I found that most
+of the file were pointing to a specific file of "linux-header-someversion" which is different from the kernal version I'm seeing using uname -r. That's 
+when I finally realized I also have to download the kernal version to be able to insert the module.
+
+These difficulties are just some minor things I got stuck into for a bit during the assignment. I understand the in a research when we are trying to fix
+a problem that no one has seen and solved before, we will definitely have much more difficulties in getting something to run. But I'm excited for any kinds
+of challenges as I very enjoy the puzzle-solving process of computer science, especially in system related programming. I was having so much fun doing the 
+333 labs and 451 labs and I believe I am capable of facing a higher level of challenge and help Priyal and Tom in improving the EPerf project!
