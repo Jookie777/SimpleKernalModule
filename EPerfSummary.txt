@@ -1,5 +1,3 @@
-Project summary:
-
 What we have:
 This project, called Eperf, aims to infer the energy consumption of application, ideally at the subroutine level. The project is designed to work in places like data centers where multiple applications share the same physical hardware and where a significant amount of energy consumption around the world exists. Being able to debug and detect how much energy is consumed by different application processes at a fine-grained level, we will be able to control and make adjustments for applications in a more reasonable structure that reduces energy consumption. 
 
@@ -9,14 +7,19 @@ Eperf makes use of micro-architectural events such as the number of cache-misses
 The project's shortcoming is that it currently ignores the extra energy used by cross-socket memory operations, and so has higher error for multi-socket servers, and even less accuracy when the model is used to predict across processor families. Potential future directions include addressing the bias introduced by Linux perf's default sampling based on elapsed time rather than consumed energy.
 
 
+
+
 Limitations:
 EPerf currently still has a couple of limitations. It can only be applied to debug at the process level. Its accuracy can be low when dealing with multi-socket servers, between 3.7% and 31.6% error, with a mean error of 19%, and even less accurate when the model is used to predict across other processor families. The prototype also ignores the extra energy used by cross-socket memory operations and Linux perf's default sampling based on elapsed time, rather than consumed energy, which can induce a small bias.
 
+
+
+
 Improvements:
 Some potential future directions for this project include:
-Improving the accuracy of the model by incorporating more micro-architectural events and even machine learning techniques.
-Enhancing the linear model by incorporating other linear optimization methods like simplex.
-Addressing the bias introduced by Linux perf's sampling method by triggering samples based on hardware event counters.
-Extending the tool to measure energy consumption at the subroutine level, instead of just the process level.
-Generalizing the model to work with multiple processor families.
-Finding and incorporating other power measurement tools to provide more accurate energy consumption data.
+ - Improving the accuracy of the model by incorporating more micro-architectural events and even machine learning techniques.
+ - Enhancing the linear model by incorporating other linear optimization methods like simplex.
+ - Addressing the bias introduced by Linux perf's sampling method by triggering samples based on hardware event counters.
+ - Extending the tool to measure energy consumption at the subroutine level, instead of just the process level.
+ - Generalizing the model to work with multiple processor families.
+ - Finding and incorporating other power measurement tools to provide more accurate energy consumption data.
