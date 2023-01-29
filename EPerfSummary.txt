@@ -1,10 +1,15 @@
 What we have:
-This project, called Eperf, aims to infer the energy consumption of application, ideally at the subroutine level. The project is designed to work in places like data centers where multiple applications share the same physical hardware and where a significant amount of energy consumption around the world exists. Being able to debug and detect how much energy is consumed by different application processes at a fine-grained level, we will be able to control and make adjustments for applications in a more reasonable structure that reduces energy consumption. 
+This project, called Eperf, aims to infer the energy consumption of application, ideally at the subroutine level. The project is designed to work in places like data centers where multiple applications share the same physical hardware and where a significant amount of energy consumption around the world exists. 
+Being able to debug and detect how much energy is consumed by different application processes at a fine-grained level, we will be able to control and make adjustments for applications in a more reasonable structure that reduces energy consumption. 
 
-Eperf makes use of micro-architectural events such as the number of cache-misses, TLB misses to predict energy consumption. Before we are able to debug energy usage, the project builds a model by using a set of standardized application benchmarks, Intel RAPL(an Intel feature that monitors power usage of process, GPU, DRAM) that provides ground truth measurements of application power consumption, Linux perf that reads the micro-architectural counters during application execution, and CVXPY, a linear optimization solver that minimize the relative error between the actual readings and the predicted value
-. Then, after we are able to establish the relationship of power consumption and the micro-architectural events for some particular processor, we can go ahead and debug the application to analyze energy usage at a fine-grained level.
+Eperf makes use of micro-architectural events such as the number of cache-misses, TLB misses to predict energy consumption. 
+Before we are able to debug energy usage, the project builds a model by using a set of standardized application benchmarks, Intel RAPL(an Intel feature that monitors power usage of process, GPU, DRAM) that provides ground truth measurements of application power consumption, Linux perf that reads the micro-architectural counters during application execution, 
+and CVXPY, a linear optimization solver that minimize the relative error between the actual readings and the predicted value
+. 
+Then, after we are able to establish the relationship of power consumption and the micro-architectural events for some particular processor, we can go ahead and debug the application to analyze energy usage at a fine-grained level.
 
-The project's shortcoming is that it currently ignores the extra energy used by cross-socket memory operations, and so has higher error for multi-socket servers, and even less accuracy when the model is used to predict across processor families. Potential future directions include addressing the bias introduced by Linux perf's default sampling based on elapsed time rather than consumed energy.
+The project's shortcoming is that it currently ignores the extra energy used by cross-socket memory operations, and so has higher error for multi-socket servers, and even less accuracy when the model is used to predict across processor families. 
+Potential future directions include addressing the bias introduced by Linux perf's default sampling based on elapsed time rather than consumed energy.
 
 
 
