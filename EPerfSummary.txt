@@ -19,4 +19,4 @@ Enhancing the linear model by incorporating other linear optimization methods li
 Addressing the bias introduced by Linux perf's sampling method by triggering samples based on hardware event counters.
 Extending the tool to measure energy consumption at the subroutine level, instead of just the process level.
 Generalizing the model to work with multiple processor families.
-Finding and incorporating o
+Finding and incorporating other power measurement tools to provide more accurate energy consumption data.
