@@ -18,6 +18,8 @@ Below is the instruction on how to correctly run the module and see the output u
 
 ```git@github.com:Jookie777/SimpleKernalModule.git```
 
+If this doesn't work due to the ssh key authentication, try using the HTTPS URL instead of the SSH/git URL to avoid having to deal with SSH keys
+
 
 
 
